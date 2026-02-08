@@ -90,9 +90,13 @@
 
 ---
 
-## Slide 7 — The Lesson
+## Slide 7 — Living in Hermione's World
 
-"I want to leave you all with this thought. The Harry Potter story teaches us something really beautiful - it doesn't matter where you come from or what family you were born into. What matters is who you choose to be. Hermione proved that every single day. And I think we can all try to do the same."
+"I love Hermione so much that I've even immersed myself in her world through the Hogwarts Legacy game. In it, I get to actually walk the halls of Hogwarts, see the same places she saw, and solve problems and mysteries just like she would. It's really cool because it feels like you're actually living in her story."
+
+> **Press ↓**
+
+"And I want to leave you all with this thought. Hermione's character, and the whole Harry Potter story, teach us something really beautiful - it doesn't matter where you come from or what family you were born into. What matters is who you choose to be. She proved that every single day. And I think we can all try to do the same."
 
 *Pause, then:*
 

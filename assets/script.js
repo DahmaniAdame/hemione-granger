@@ -10,17 +10,41 @@ Reveal.initialize({
     // No-op: overlays now handled purely via CSS on .slide-top / .slide-bottom
 });
 
-// Play video backgrounds from start on slide enter, freeze on last frame
+// Reset vertical stacks to first sub-slide when navigating away horizontally
+let previousH = 0;
+let resetting = false;
 Reveal.on('slidechanged', event => {
+    if (resetting) return;
+
     createSparkles();
 
-    const bg = Reveal.getSlideBackground(event.indexh, event.indexv);
-    if (bg) {
-        const video = bg.querySelector('video');
-        if (video) {
-            video.currentTime = 0;
-            video.play();
-        }
+    // Detect horizontal movement
+    const movedHorizontally = event.indexh !== previousH;
+
+    // If we moved horizontally, reset the previous stack to its first sub-slide
+    if (movedHorizontally && event.previousSlide) {
+        resetting = true;
+        Reveal.slide(previousH, 0);
+        Reveal.slide(event.indexh, event.indexv);
+        resetting = false;
+    }
+    previousH = event.indexh;
+
+    // Play video from start only on horizontal navigation, not vertical
+    // Delay ensures reveal.js internal state has settled after the reset
+    if (movedHorizontally) {
+        const h = event.indexh;
+        const v = event.indexv;
+        setTimeout(() => {
+            const bg = Reveal.getSlideBackground(h, v);
+            if (bg) {
+                const video = bg.querySelector('video');
+                if (video) {
+                    video.currentTime = 0;
+                    video.play();
+                }
+            }
+        }, 100);
     }
 });
 

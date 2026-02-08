@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Esitys - Lukukortit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #222;
+        }
+
+        .card {
+            width: 210mm;
+            height: 148.5mm; /* half A4 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10mm 20mm;
+            border-bottom: 1px dashed #ccc;
+            page-break-inside: avoid;
+        }
+
+        .card:nth-child(even) {
+            border-bottom: none;
+        }
+
+        /* Force page break after every 2 cards */
+        .card:nth-child(2n) {
+            page-break-after: always;
+        }
+
+        .card-inner {
+            text-align: center;
+            max-width: 170mm;
+        }
+
+        .card-label {
+            font-size: 11pt;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1mm;
+        }
+
+        .card-label-translation {
+            font-size: 10pt;
+            line-height: 1.4;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 4mm;
+        }
+
+        
+        .card-label-translation span {
+            margin-right: 5px;
+        }
+
+        .mono {
+            filter: grayscale(1);
+            opacity: 0.6;
+        }
+
+        .card-text {
+            font-size: 16pt;
+            line-height: 1.45;
+        }
+
+        .card-translation {
+            font-size: 10pt;
+            line-height: 1.4;
+            color: #333;
+            margin-top: 4mm;
+            font-style: italic;
+        }
+
+        .card-nav {
+            margin-top: 5mm;
+            font-size: 14pt;
+            color: #888;
+            font-weight: bold;
+        }
+
+        @media print {
+            .card {
+                border-bottom: 1px dashed #ddd;
+            }
+            .card:nth-child(even) {
+                border-bottom: none;
+            }
+        }
+
+        /* Screen preview styling */
+        @media screen {
+            body {
+                background: #eee;
+            }
+            .card {
+                background: white;
+            }
+            .card:nth-child(2n+1) {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Card 1 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label">Dia 1 — Tervetuloa!</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Welcome!</div>
+            <div class="card-text">Hei kaikki! Mun nimi on Alae, ja tänään mä kerron teille mun suosikkihahmosta Harry Potterista - Hermione Grangerista, aikansa loistavimmasta noidasta. Mä valitsin hänet, koska hän on aivan mahtava hahmo, ja musta meillä kaikilla on jotain opittavaa häneltä. Mä kerron teille miksi!</div>
+            <div class="card-translation"><span class="mono">🚫</span>Hi everyone! My name is Alae, and today I'm going to talk about my favorite character from Harry Potter - Hermione Granger, the Brightest Witch of Her Age. I picked her because she's an amazing character that I think we can all learn something from. Let me tell you why!</div>
+            <div class="card-nav">→</div>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label">Dia 2a — Tutustutaan Hermioneen!</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Meet Hermione!</div>
+            <div class="card-text">Eka, esittelen hänet. Hermione Granger on yksi Harry Potterin päähenkilöistä. Hän on Harryn ja Ronin paras ystävä, ja hänet tunnetaan siitä, että hän on uskomattoman älykäs ja rohkea. Hän on sellainen ystävä, joka tekisi mitä vaan auttaakseen niitä, joista hän välittää.</div>
+            <div class="card-translation"><span class="mono">🚫</span>So first, let me introduce her. Hermione Granger is one of the main characters in Harry Potter. She's best friends with Harry and Ron, and she's known for being incredibly smart and brave. She's the kind of friend who would do anything to help the people she cares about.</div>
+            <div class="card-nav">↓</div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label"><span class="mono">🚫</span> Dia 2b — Tutustutaan Hermioneen!</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Meet Hermione!</div>
+            <div class="card-text">Musta on tosi inspiroivaa, että hän syntyi ei-taikovien vanhempien perheeseen - häntä kutsutaan jästisyntyiseksi. Hän ei kasvanut tietäen mitään taikuudesta. Mutta sen sijaan että se olisi hidastanut häntä, hän teki enemmän töitä kuin kukaan muu ja hänestä tuli koko vuosikurssinsa älykkäin noita Tylypahkassa. Se on aika uskomatonta, jos miettii.</div>
+            <div class="card-translation"><span class="mono">🚫</span>What I find really inspiring about her is that she was born to non-magical parents - she's what they call Muggle-born. She didn't grow up knowing anything about magic. But instead of letting that hold her back, she worked harder than anyone else and became the smartest witch in her entire year at Hogwarts. That's pretty incredible if you think about it.</div>
+            <div class="card-nav">↓</div>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label"><span class="mono">🚫</span> Dia 2c — Tutustutaan Hermioneen!</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Meet Hermione!</div>
+            <div class="card-text">Ja tämä on yksi ensimmäisistä asioista, joita Hermione opettaa meille - ei ole oikeasti väliä mistä aloitat elämässä. Tärkeintä on, kuinka kovasti olet valmis yrittämään. Musta se on opetus, johon me kaikki voidaan samaistua.</div>
+            <div class="card-translation"><span class="mono">🚫</span>And that's one of the first things Hermione teaches us - it really doesn't matter where you start in life. What matters is how hard you're willing to try. I think that's a lesson all of us can relate to.</div>
+            <div class="card-nav">→</div>
+        </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label">Dia 3a — Ensimmäiset vuodet Tylypahkassa</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Early Years at Hogwarts</div>
+            <div class="card-text">Kun Hermione tuli ensimmäistä kertaa Tylypahkaan, hän oli vähän erilainen kuin muut lapset. Musta moni meistä voi samaistua siihen tunteeseen - tiedättekö, kun on se uusi oppilas, haluaa todistaa itsensä, mutta ei ihan sovi joukkoon. Juuri niin Hermione tunsi aluksi.</div>
+            <div class="card-translation"><span class="mono">🚫</span>When Hermione first arrived at Hogwarts, she was a bit different from the other kids. I think a lot of us can relate to that feeling - you know, being the new kid, wanting to prove yourself, but not quite fitting in. That's exactly how Hermione felt at first.</div>
+            <div class="card-nav">↓</div>
+        </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label"><span class="mono">🚫</span> Dia 3b — Ensimmäiset vuodet Tylypahkassa</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Early Years at Hogwarts</div>
+            <div class="card-text">Mutta jo silloin hän oli erityinen. Hän otti riskejä auttaakseen Harrya ja näytti oikeaa viisautta silloin kun sillä oli merkitystä. Hän ei pitänyt riitelystä tai tappelemisesta, ja okei - hän saattoi olla vähän pomottava joskus. Mutta rehellisesti? Se johtui vaan siitä, että hän aina tiesi mitä pitää tehdä eikä pelännyt sanoa sitä ääneen. Musta se vaatii paljon rohkeutta.</div>
+            <div class="card-translation"><span class="mono">🚫</span>But even back then, she was already special. She took risks to help Harry and showed real wisdom when it mattered. She didn't like fighting or arguing, and okay - she could be a little bossy sometimes. But honestly? That's just because she always knew what needed to be done and she wasn't afraid to speak up. I think that takes a lot of courage.</div>
+            <div class="card-nav">↓</div>
+        </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label"><span class="mono">🚫</span> Dia 3c — Ensimmäiset vuodet Tylypahkassa</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Early Years at Hogwarts</div>
+            <div class="card-text">Eli Hermione näyttää meille tässä, että erilaisuus ei ole huono juttu - se voi oikeasti olla sun suurin vahvuus. Ja musta se on tosi tärkeää muistaa.</div>
+            <div class="card-translation"><span class="mono">🚫</span>So what Hermione shows us here is that being different isn't a bad thing - it can actually be your biggest strength. And I think that's really important to remember.</div>
+            <div class="card-nav">→</div>
+        </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label">Dia 4a — Mikä tekee Hermionesta erityisen?</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>What Makes Hermione Special?</div>
+            <div class="card-text">Nyt mä kerron teille, mikä tekee Hermionesta oikeasti erityisen. Hän on rohkea, älykäs ja täynnä uskallusta. Hän osaa kaikki loitsut ja taikajuomat, koska hän oikeasti kuuntelee jokaisella tunnilla - toisin kuin jotkut hänen ystävistään! Ja hänellä on ihan mahtavat salapoliisitaidot. Hän on aina se, joka antaa vihjeitä Harrylle ja Ronille ja selvittää mysteerit ennen ketään muuta.</div>
+            <div class="card-translation"><span class="mono">🚫</span>Now let me tell you what makes Hermione truly special. She's brave, smart, and full of courage. She knows all the spells and potions because she actually pays attention in every single class - unlike some of her friends! And she's got these amazing detective skills. She's always the one giving clues to Harry and Ron and figuring out mysteries before anyone else can.</div>
+            <div class="card-nav">↓</div>
+        </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label"><span class="mono">🚫</span> Dia 4b — Mikä tekee Hermionesta erityisen?</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>What Makes Hermione Special?</div>
+            <div class="card-text">Mutta tässä on se juttu - hän ei ole täydellinen. Ja se oikeasti tekee hänestä niin hienon. Hän voi suuttua ja olla kiihtynyt, ja joskus hän on hämmentynyt siitä mitä pitäisi tehdä. Hän ei oikeasti pidä väkivallasta tai julmuudesta, koska hänellä on aidosti hyvä sydän. Ja kun asiat muuttuivat tosi vaarallisiksi? Hänkin pelkäsi - ihan kuin kuka tahansa meistä pelkäisi. Hän on ihminen, ja se tekee hänestä oikean tuntuisen.</div>
+            <div class="card-translation"><span class="mono">🚫</span>But here's the thing - she's not perfect. And that's actually what makes her so great. She can get angry and intense, and sometimes she's confused about what to do. She really doesn't like violence or cruelty because she has a genuinely good heart. And when things got really dangerous? She was scared too - just like any of us would be. She's human, and that's what makes her feel real.</div>
+            <div class="card-nav">↓</div>
+        </div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label"><span class="mono">🚫</span> Dia 4c — Mikä tekee Hermionesta erityisen?</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>What Makes Hermione Special?</div>
+            <div class="card-text">Ja tämä on toinen iso opetus Hermionelta - sinun ei tarvitse olla täydellinen ollaksesi erityinen. Sun pitää vaan olla oma itsesi. Mä oikeasti rakastan sitä hänessä.</div>
+            <div class="card-translation"><span class="mono">🚫</span>And that's another big lesson from Hermione - you don't have to be perfect to be extraordinary. You just have to be yourself. I really love that about her.</div>
+            <div class="card-nav">→</div>
+        </div>
+    </div>
+
+    <!-- Card 11 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label">Dia 5a — Kasvaminen ja vahvistuminen</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Growing Up &amp; Getting Stronger</div>
+            <div class="card-text">Yksi mun lemppariasioista Hermionessa on se, kuinka paljon hän kasvaa tarinan aikana. Kun hän kasvoi vanhemmaksi, hän muuttui ja vahvistui tosi paljon. Hänen koko matkansa Tylypahkan läpi todella muutti häntä.</div>
+            <div class="card-translation"><span class="mono">🚫</span>One of my favorite things about Hermione is how much she grows throughout the story. As she got older, she changed and became so much stronger. Her whole journey through Hogwarts really transformed her.</div>
+            <div class="card-nav">↓</div>
+        </div>
+    </div>
+
+    <!-- Card 12 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label"><span class="mono">🚫</span> Dia 5b — Kasvaminen ja vahvistuminen</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Growing Up &amp; Getting Stronger</div>
+            <div class="card-text">Hän aloitti pelokkaana ja ilman yhtään ystävää. Sitten vähitellen hän tuli iloisemmaksi, kun hän löysi paikkansa. Ja lopulta hänestä oli kasvanut uskollinen, älykäs ja välittävä ihminen, johon kaikki saattoivat luottaa. Hän meni siitä, ettei hänellä ollut ketään, siihen, että hän oli se ihminen, jota kaikki tarvitsivat.</div>
+            <div class="card-translation"><span class="mono">🚫</span>She started out scared and without any friends. Then slowly, she became happier as she found where she belonged. And by the end, she had grown into this loyal, smart, and caring person that everyone could count on. She went from having nobody to being the person everyone needed.</div>
+            <div class="card-nav">↓</div>
+        </div>
+    </div>
+
+    <!-- Card 13 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label"><span class="mono">🚫</span> Dia 5c — Kasvaminen ja vahvistuminen</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Growing Up &amp; Getting Stronger</div>
+            <div class="card-text">Kasvaminen on sitä, että sinusta tulee se, joka sinun on tarkoitus olla. Ja juuri niin Hermione teki. Musta hänen tarinansa näyttää meille, että on ihan ok, vaikka ei heti tiedä kaikkea - kyllä sinne pääsee.</div>
+            <div class="card-translation"><span class="mono">🚫</span>Growing up is all about becoming who you're meant to be. And that's exactly what Hermione did. I think her story shows us that it's okay to not have everything figured out right away - you'll get there.</div>
+            <div class="card-nav">→</div>
+        </div>
+    </div>
+
+    <!-- Card 14 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label">Dia 6a — Miksi valitsin Hermionen</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Why I Chose Hermione</div>
+            <div class="card-text">Eli miksi mä valitsin Hermionen suosikkihahmokseni? Koska hän näyttää meille, että elämässä ei oikeasti ole tärkeintä taikuus tai se, että tulee erityisestä perheestä. Kyse on siitä, että on uskallusta ja sydäntä tehdä oikein, vaikka se olisi vaikeaa.</div>
+            <div class="card-translation"><span class="mono">🚫</span>So why did I choose Hermione as my favorite character? Because she shows us that what really matters in life isn't magic or coming from a special family. It's about having the courage and the heart to do what's right, even when it's hard.</div>
+            <div class="card-nav">↓</div>
+        </div>
+    </div>
+
+    <!-- Card 15 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label"><span class="mono">🚫</span> Dia 6b — Miksi valitsin Hermionen</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Why I Chose Hermione</div>
+            <div class="card-text">Joo, hän on älykkäin noita ja hän tietää kaiken loitsuista ja taikajuomista. Mutta se, mitä mä rakastan hänessä eniten, on se, että hän on täynnä iloa, rakkautta ja välittämistä. Hän tekee kaikista ympärillään parempia vain olemalla oma itsensä. Ja rehellisesti? Sellainen ihminen mäkin haluaisin olla.</div>
+            <div class="card-translation"><span class="mono">🚫</span>Yes, she's the smartest witch and she knows everything about spells and potions. But what I love most about her is that she's filled with joy, love, and care. She makes everyone around her better just by being herself. And honestly? That's the kind of person I want to be like.</div>
+            <div class="card-nav">↓</div>
+        </div>
+    </div>
+
+    <!-- Card 16 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label"><span class="mono">🚫</span> Dia 6c — Miksi valitsin Hermionen</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Why I Chose Hermione</div>
+            <div class="card-text">Ja siksi Hermione Granger on mun ehdoton suosikkihahmo. Ei vaan Harry Potterissa - vaan missä tahansa tarinassa, jonka mä oon koskaan lukenut.</div>
+            <div class="card-translation"><span class="mono">🚫</span>And that's why Hermione Granger is my absolute favorite character. Not just in Harry Potter - but in any story I've ever read.</div>
+            <div class="card-nav">→</div>
+        </div>
+    </div>
+
+    <!-- Card 17 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label">Dia 7a — Hermionen maailmassa</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>Living in Hermione's World</div>
+            <div class="card-text">Mä rakastan Hermionea niin paljon, että mä oon jopa uppoutunut hänen maailmaansa Hogwarts Legacy -pelissä. Siinä mä pääsen oikeasti kävelemään Tylypahkan käytävillä, näkemään samoja paikkoja kuin hän näki, ja ratkaisemaan ongelmia ja mysteereitä ihan niin kuin hänkin tekisi. Se on tosi siistiä, koska tuntuu kuin oikeasti eläisi hänen tarinassaan.</div>
+            <div class="card-translation"><span class="mono">🚫</span>I love Hermione so much that I've even immersed myself in her world through the Hogwarts Legacy game. In it, I get to actually walk the halls of Hogwarts, see the same places she saw, and solve problems and mysteries just like she would. It's really cool because it feels like you're actually living in her story.</div>
+            <div class="card-nav">↓</div>
+        </div>
+    </div>
+
+    <!-- Card 18 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label"><span class="mono">🚫</span> Dia 7b — Opetus</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>The Lesson</div>
+            <div class="card-text">Ja mä haluan jättää teille kaikille tämän ajatuksen. Hermionen hahmo ja koko Harry Potter -tarina opettavat meille jotain tosi kaunista - ei ole väliä mistä tulet tai mihin perheeseen synnyit. Tärkeintä on, kuka sinä päätät olla. Hermione todisti sen joka ikinen päivä. Ja musta me kaikki voidaan yrittää tehdä samoin.</div>
+            <div class="card-translation"><span class="mono">🚫</span>And I want to leave you all with this thought. Hermione's character, and the whole Harry Potter story, teach us something really beautiful - it doesn't matter where you come from or what family you were born into. What matters is who you choose to be. Hermione proved that every single day. And I think we can all try to do the same.</div>
+        </div>
+    </div>
+
+    <!-- Card 19 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-label">Loppu</div>
+            <div class="card-label-translation"><span class="mono">🚫</span>The End</div>
+            <div class="card-text" style="font-size: 28pt;">Kiitos kun kuuntelitte!</div>
+            <div class="card-translation" style="font-size: 14pt;"><span class="mono">🚫</span>Thank you for listening!</div>
+        </div>
+    </div>
+
+    <!-- Card 20: blank to fill the A4 page -->
+    <div class="card">
+        <div class="card-inner"></div>
+    </div>
+
+</body>
+</html>

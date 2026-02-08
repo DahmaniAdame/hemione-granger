@@ -90,9 +90,13 @@
 
 ---
 
-## Dia 7 — Opetus
+## Dia 7 — Hermionen maailmassa
 
-"Mä haluan jättää teille kaikille tämän ajatuksen. Harry Potter -tarina opettaa meille jotain tosi kaunista - ei ole väliä mistä tulet tai mihin perheeseen synnyit. Tärkeintä on, kuka sinä päätät olla. Hermione todisti sen joka ikinen päivä. Ja musta me kaikki voidaan yrittää tehdä samoin."
+"Mä rakastan Hermionea niin paljon, että mä oon jopa uppoutunut hänen maailmaansa Hogwarts Legacy -pelissä. Siinä mä pääsen oikeasti kävelemään Tylypahkan käytävillä, näkemään samoja paikkoja kuin hän näki, ja ratkaisemaan ongelmia ja mysteereitä ihan niin kuin hänkin tekisi. Se on tosi siistiä, koska tuntuu kuin oikeasti eläisi hänen tarinassaan."
+
+> **Paina ↓**
+
+"Ja mä haluan jättää teille kaikille tämän ajatuksen. Hermionen hahmo ja koko Harry Potter -tarina opettavat meille jotain tosi kaunista - ei ole väliä mistä tulet tai mihin perheeseen synnyit. Tärkeintä on, kuka sinä päätät olla. Hermione todisti sen joka ikinen päivä. Ja musta me kaikki voidaan yrittää tehdä samoin."
 
 *Tauko, sitten:*
 

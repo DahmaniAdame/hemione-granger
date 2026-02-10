@@ -1,0 +1,222 @@
+/* Hermione Granger Presentation Styles */
+@import url('https://fonts.googleapis.com/css2?family=Mystery+Quest&family=Nunito:wght@400;600;700&display=swap');
+
+/* ===== Base ===== */
+.reveal {
+    font-family: 'Nunito', sans-serif;
+    font-size: 42px;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: initial!important;
+}
+
+.reveal h1 {
+    font-family: 'Mystery Quest', serif;
+    letter-spacing: 0.08em;
+    font-size: 2em;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: 700;
+    margin-bottom: 0.2em;
+}
+
+.reveal h2 {
+    font-family: 'Mystery Quest', serif;
+    letter-spacing: 0.08em;
+    font-size: 1.4em;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: 700;
+    margin-bottom: 0.4em;
+}
+
+.reveal h3 {
+    font-family: 'Mystery Quest', serif;
+    letter-spacing: 0.08em;
+    font-size: 1.15em;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: 700;
+}
+
+.reveal p {
+    margin: 0.4em 0;
+    line-height: 1.5;
+}
+
+.reveal section {
+    font-size: 0.95em;
+}
+
+.highlight {
+    color: #ff79c6;
+    font-weight: 700;
+}
+
+/* ===== Reusable Layout ===== */
+.title-slide {
+    background: linear-gradient(135deg, #1a0033 0%, #4a0080 50%, #1a0033 100%);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+/* ===== Illustrated slide (background image) ===== */
+.illustrated-slide {
+    padding: 0 !important;
+}
+
+.illustrated-slide.present {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+/* ===== Gradient text regions ===== */
+/* Bleed technique: ::before extends beyond section bounds to fill viewport width */
+.slide-top,
+.slide-bottom {
+    position: relative;
+    text-align: center;
+}
+
+.slide-top {
+    padding: 30px 40px 60px;
+}
+
+.slide-bottom {
+    padding: 60px 40px 30px;
+}
+
+.slide-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -9999px;
+    right: -9999px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.slide-bottom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 15px;
+}
+
+.slide-top::before {
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 0, 30, 0.85) 0%,
+        rgba(10, 0, 30, 0.6) 60%,
+        transparent 100%
+    );
+}
+
+.slide-bottom::before {
+    background: linear-gradient(
+        to top,
+        rgba(10, 0, 30, 0.85) 0%,
+        rgba(10, 0, 30, 0.6) 60%,
+        transparent 100%
+    );
+}
+
+.slide-middle-spacer {
+    flex: 1;
+}
+
+/* ===== Illustrated slide text colors ===== */
+.illustrated-slide h1,
+.illustrated-slide h2 {
+    color: #fff5d6;
+    text-shadow: 0 0 20px rgba(255, 200, 50, 0.5), 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.illustrated-slide h3 {
+    color: #e8c8ff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.illustrated-slide p,
+.illustrated-slide li {
+    color: #efe6f7;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.illustrated-slide ul {
+    list-style: none;
+    margin: 8px 0;
+    padding: 0;
+}
+
+.illustrated-slide li {
+    margin: 10px 0;
+    font-size: 0.88em;
+    line-height: 1.5;
+}
+
+.illustrated-slide .slide-top p,
+.illustrated-slide .slide-bottom p {
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.title-author {
+    margin-top: 12px;
+    font-size: 0.9em;
+    color: #fff5d6;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* ===== Accent text ===== */
+.evolution-takeaway {
+    color: #ffd700 !important;
+    font-size: 0.9em;
+}
+
+.flow-takeaway {
+    color: #ff79c6 !important;
+    font-size: 0.88em;
+}
+
+.closing-thanks {
+    font-size: 0.75em;
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+/* ===== Animations ===== */
+.heart-pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(20deg); }
+    75% { transform: rotate(-20deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes sparkleFloat {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-50px) scale(0.5); }
+}

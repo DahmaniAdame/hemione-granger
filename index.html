@@ -7,14 +7,60 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/moon.css">
     <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        /* Polished Premium Autoplay Button */
+        #autoplay-toggle {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 9999;
+            padding: 12px 28px;
+            
+            /* Glassmorphism Effect */
+            background: linear-gradient(-45deg, #0000009c, #00000000);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            
+            color: #fff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 70px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1;
+            border: 0;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform: translateY(-10px);
+
+
+            height: 10%;
+            width: 30%;
+        }
+
+        /* Visible state triggered by hover zone */
+        #autoplay-toggle.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .highlight {
+            color: #e7ad52;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+
+    <button id="autoplay-toggle">Autoplay</button>
+
     <div class="reveal">
         <div class="slides">
-
-            <!-- Otsikkodia -->
             <section class="illustrated-slide" data-background-video="assets/media/scene-title.mp4" data-background-video-muted data-background-size="cover">
-                <div class="slide-middle-spacer"></div>
                 <div class="slide-bottom">
                     <h1>Hermione Granger</h1>
                     <h3>Aikansa loistavin noita</h3>
@@ -22,58 +68,99 @@
                 </div>
             </section>
 
-            <!-- Tutustutaan Hermioneen -->
-            <section class="illustrated-slide" data-background-image="assets/media/scene-meet-hermione.png" data-background-size="cover" data-background-position="center">
-                <div class="slide-middle-spacer"></div>
+            <section class="illustrated-slide" data-background-image="assets/media/scene-meet-hermione.png" data-background-size="cover">
                 <div class="slide-bottom">
                     <h2>Ei ole väliä mistä aloitat - tärkeintä on <span class="highlight">kuinka kovasti yrität!</span></h2>
                 </div>
             </section>
 
-            <!-- Ensimmäiset vuodet -->
             <section class="illustrated-slide" data-background-video="assets/media/scene-early-years.mp4" data-background-video-muted data-background-size="cover">
-                <div class="slide-middle-spacer"></div>
                 <div class="slide-bottom">
                     <h2>Erilaisuus voi olla <span class="highlight">suurin vahvuutesi!</span></h2>
                 </div>
             </section>
 
-            <!-- Erityiset ominaisuudet -->
-            <section class="illustrated-slide" data-background-image="assets/media/scene-special-qualities.png" data-background-size="cover" data-background-position="center">
-                <div class="slide-middle-spacer"></div>
+            <section class="illustrated-slide" data-background-image="assets/media/scene-special-qualities.png" data-background-size="cover">
                 <div class="slide-bottom">
                     <h2>Sinun ei tarvitse olla täydellinen ollaksesi erityinen - <span class="highlight">ole vain oma itsesi!</span></h2>
                 </div>
             </section>
 
-            <!-- Kasvaminen -->
             <section class="illustrated-slide" data-background-video="assets/media/scene-growing-up.mp4" data-background-video-muted data-background-size="cover">
-                <div class="slide-middle-spacer"></div>
                 <div class="slide-bottom">
                     <h2>Kasvaminen tarkoittaa sitä, että sinusta tulee se, <span class="highlight">joka sinun on tarkoitus olla!</span></h2>
                 </div>
             </section>
 
-            <!-- Miksi valitsin Hermionen -->
-            <section class="illustrated-slide" data-background-image="assets/media/scene-why-i-chose.png" data-background-size="cover" data-background-position="center">
-                <div class="slide-middle-spacer"></div>
+            <section class="illustrated-slide" data-background-image="assets/media/scene-why-i-chose.png" data-background-size="cover">
                 <div class="slide-bottom">
                     <h2>Rohkea, älykäs ja täynnä <span class="highlight">iloa, rakkautta ja välittämistä.</span></h2>
                 </div>
             </section>
 
-            <!-- Hermionen maailmassa -->
             <section class="illustrated-slide" data-background-video="assets/media/scene-hermiones-world.mp4" data-background-video-muted data-background-size="cover">
-                <div class="slide-middle-spacer"></div>
                 <div class="slide-bottom">
-                    <h2>Hermionen hahmo ja koko Harry Potter -tarina opettavat meille jotain kaunista - <span class="highlight">tärkeintä on, kuka päätät olla!</span></h2>
+                    <h2>Tärkeintä on, kuka päätät olla!</h2>
                 </div>
             </section>
-
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
-    <script src="assets/script.js"></script>
+    <script>
+        const deck = new Reveal();
+        deck.initialize({ hash: true, controls: true, progress: true });
+
+        const btn = document.getElementById('autoplay-toggle');
+        let autoplayInterval = null;
+        let isProgrammaticChange = false;
+
+        function stopAutoplay() {
+            if (autoplayInterval) {
+                clearInterval(autoplayInterval);
+                autoplayInterval = null;
+                btn.innerText = "Autoplay";
+                btn.classList.remove('active-stop');
+            }
+        }
+
+        // Hover Zone Detection (Top 30% / Right 30%)
+        window.addEventListener('mousemove', (e) => {
+            const widthThreshold = window.innerWidth * 0.7; 
+            const heightThreshold = window.innerHeight * 0.3; 
+            if (e.clientX > widthThreshold && e.clientY < heightThreshold) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        // Force pause if user navigates manually
+        deck.on('slidechanged', () => {
+            if (!isProgrammaticChange) {
+                stopAutoplay();
+            }
+            isProgrammaticChange = false; // Reset flag after every change
+        });
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (autoplayInterval) {
+                stopAutoplay();
+            } else {
+                btn.innerText = "Stop";
+                btn.classList.add('active-stop');
+                
+                autoplayInterval = setInterval(() => {
+                    isProgrammaticChange = true; // Set flag so listener knows this was auto
+                    if (deck.isLastSlide()) {
+                        deck.slide(0);
+                    } else {
+                        deck.next();
+                    }
+                }, 10000);
+            }
+        });
+    </script>
 </body>
 </html>
